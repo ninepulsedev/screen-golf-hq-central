@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>스크린골프 관리 시스템</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="build-version" content="20250211-2305">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    // 강제 캐시 무효화
+    window.addEventListener('load', function () {
+      // 모든 스크립트 태그에 타임스탬프 추가
+      const scripts = document.querySelectorAll('script[src]');
+      scripts.forEach(function (script) {
+        if (script.src.includes('.js')) {
+          const newSrc = script.src + '?v=20250211-2305';
+          script.src = newSrc;
+        }
+      });
+
+      // 서비스 워커 등록 방지
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function (registrations) {
+          for (let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

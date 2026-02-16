@@ -1,0 +1,142 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 국가별 users 컬렉션들 - 명시적으로 허용
+    match /users_KR/{userId} {
+      allow read, write: if true;
+    }
+    
+    match /users_US/{userId} {
+      allow read, write: if true;
+    }
+    
+    match /users_JP/{userId} {
+      allow read, write: if true;
+    }
+    
+    match /users_CN/{userId} {
+      allow read, write: if true;
+    }
+    
+    match /users_GB/{userId} {
+      allow read, write: if true;
+    }
+    
+    match /users_DE/{userId} {
+      allow read, write: if true;
+    }
+    
+    match /users_FR/{userId} {
+      allow read, write: if true;
+    }
+    
+    match /users_IT/{userId} {
+      allow read, write: if true;
+    }
+    
+    match /users_ES/{userId} {
+      allow read, write: if true;
+    }
+    
+    match /users_NL/{userId} {
+      allow read, write: if true;
+    }
+    
+    // 국가별 stores 컬렉션들 - 명시적으로 허용
+    match /stores_KR/{storeId} {
+      allow read, write: if true;
+    }
+    
+    match /stores_US/{storeId} {
+      allow read, write: if true;
+    }
+    
+    match /stores_JP/{storeId} {
+      allow read, write: if true;
+    }
+    
+    match /stores_CN/{storeId} {
+      allow read, write: if true;
+    }
+    
+    match /stores_GB/{storeId} {
+      allow read, write: if true;
+    }
+    
+    match /stores_DE/{storeId} {
+      allow read, write: if true;
+    }
+    
+    match /stores_FR/{storeId} {
+      allow read, write: if true;
+    }
+    
+    match /stores_IT/{storeId} {
+      allow read, write: if true;
+    }
+    
+    match /stores_ES/{storeId} {
+      allow read, write: if true;
+    }
+    
+    match /stores_NL/{storeId} {
+      allow read, write: if true;
+    }
+    
+    // 국가별 settlements 컬렉션들 - 명시적으로 허용
+    match /settlements_KR/{document=**} {
+      allow read, write: if true;
+    }
+    
+    match /settlements_US/{document=**} {
+      allow read, write: if true;
+    }
+    
+    match /settlements_JP/{document=**} {
+      allow read, write: if true;
+    }
+    
+    match /settlements_CN/{document=**} {
+      allow read, write: if true;
+    }
+    
+    match /settlements_GB/{document=**} {
+      allow read, write: if true;
+    }
+    
+    match /settlements_DE/{document=**} {
+      allow read, write: if true;
+    }
+    
+    match /settlements_FR/{document=**} {
+      allow read, write: if true;
+    }
+    
+    match /settlements_IT/{document=**} {
+      allow read, write: if true;
+    }
+    
+    match /settlements_ES/{document=**} {
+      allow read, write: if true;
+    }
+    
+    match /settlements_NL/{document=**} {
+      allow read, write: if true;
+    }
+    
+    // userSettings 컬렉션 - 인증된 사용자만 접근
+    match /userSettings/{userId} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // 기타 users 및 stores 컬렉션 - 인증된 사용자만 접근
+    match /users/{document=**} {
+      allow read, write: if request.auth != null;
+    }
+    
+    match /stores/{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
